@@ -7,7 +7,7 @@ public class Product
 {
 	private final String name = "";
 	private final long id = -1;
-	private final Strin description = "null";
+	private final String description = "null";
 	private final String imageURL = "null";
 	private final Double price = 0.00;
 	private final Integer stock = 0;

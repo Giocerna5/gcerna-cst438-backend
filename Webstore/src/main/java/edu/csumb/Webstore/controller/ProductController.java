@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.ApiOperation;
 import edu.csumb.Webstore.model.Product;
 import edu.csumb.Webstore.service.ProductService;
+import java.util.List;
 
 @RestController
 public class ProductController
