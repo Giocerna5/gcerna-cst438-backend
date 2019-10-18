@@ -10,4 +10,6 @@ import edu.csumb.Webstore.model.Product;
 public interface ProductRepository extends MongoRepository<Product,String>
 {
     //Will largely stay empty. You can add extra database features here if you want!
+	public Iterable<Product> findByName(String name);
+
 }
