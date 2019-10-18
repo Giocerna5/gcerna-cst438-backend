@@ -32,5 +32,5 @@ public class Product
  	public Double getPrice(){ return this.price; } 
 	public void setPrice(Double temp){ this.price = temp; }  
  	public Integer getStock(){ return this.stock; }
-	public void setStock(String temp){ this.stock = temp; }  
+	public void setStock(Integer temp){ this.stock = temp; }  
 }
