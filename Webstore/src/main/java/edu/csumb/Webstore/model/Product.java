@@ -5,12 +5,12 @@ package edu.csumb.Webstore.model;
 
 public class Product
 {
-	private final String name = "";
-	private final long id = -1;
-	private final String description = "null";
-	private final String imageURL = "null";
-	private final Double price = 0.00;
-	private final Integer stock = 0;
+	private String name = "";
+	private long id = -1;
+	private String description = "null";
+	private String imageURL = "null";
+	private Double price = 0.00;
+	private Integer stock = 0;
 
 	public Product(String name, long id, String description, String imageURL, Double price, Integer stock){
 		this.name = name;
