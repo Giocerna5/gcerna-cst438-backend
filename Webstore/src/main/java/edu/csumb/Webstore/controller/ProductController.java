@@ -17,6 +17,7 @@ import io.swagger.annotations.ApiOperation;
 import edu.csumb.Webstore.model.Product;
 import edu.csumb.Webstore.service.ProductService;
 import java.util.List;
+import edu.csumb.Webstore.repositories.ProductRepository;
 
 @RestController
 public class ProductController
