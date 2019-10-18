@@ -24,6 +24,8 @@ public class ProductController
     //This is autowiring(Telling spring to just connect to the dang service automatically) for us.
     @Autowired
     ProductService productService;
+    @Autowired
+    ProductRepository productRepository;
 
     //REQUESTMAPPING
     //We are setting a request mapping with request type GET. You can change these to POST or anything else you want!
@@ -35,20 +37,27 @@ public class ProductController
     //EXAMPLE()
     //We are returning an Iterable, which means a List! Use Iterable<Datatype> when you want to return many.
     //For example Iterable<Product>
-    @RequestMapping(method = RequestMethod.GET, value = "/products/example")
-    @ApiOperation(value = "An example of a api function to get you started." )
-    public Iterable<String> example()
-    {
+    @RequestMapping(method = RequestMethod.GET, value = "/products/getInfo")
+    @ApiOperation(value = "POST of products with (name) as params" )
+    public List<Product> getInfo(){
         //ALL LOGIC SHOULD BE IN THE SERVICE. EVEN IF IT'S JUST ONE LINE!
         //IF YOU HAVE ANY LOGIC IN THE CONTROLLER IT IS BAD!
         //So we are calling the service function we want.
-        return productService.example();
+   
+	return productRepository.findAll();
     }
 
     //NETWORKING QUICK REFERENCE
     //IF @RequestMapping(method = RequestMethod.GET, value = "/example/{var}")
     //Then you should use @RequestParam to get the variable, like so
     // public returnType getVar(@RequestParam DataType var)
+    @RequestMapping(method = RequestMethod.GET, value = "/products/get")
+    @ApiOperation(value = "POST of products with (name) as params" )
+    public Optional<Product> getProductByID(@RequestParam(value="id") String id) {
+        
+	return productRepository.findById(id);
+    }
+
 
     //IF  @RequestMapping(method = RequestMethod.POST, value = "/example")
     //Then you should use @RequestBody to get the variable, like so.
@@ -57,6 +66,13 @@ public class ProductController
     //Put and Delete will use either. They can also be compiled.
     // So IF @RequestMapping(value = "/{pathVar}", method = RequestMethod.PUT)
     //public void foo(@RequestParam dataType pathVar, @RequestBody dataType postVar)
+
+     @RequestMapping(method = RequestMethod.POST, value = "/products/add")
+     @ApiOperation(value = "POST of products with (name) as params" )
+    public void addProduct(@RequestParam(value="product") Product p) {
+   
+	productRepository.save(p);
+    }
 
 
 }
