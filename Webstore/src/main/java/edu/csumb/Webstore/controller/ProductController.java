@@ -71,9 +71,9 @@ public class ProductController
 
      @RequestMapping(method = RequestMethod.POST, value = "/products/add")
      @ApiOperation(value = "POST of products with (name) as params" )
-    public void addProduct(@RequestParam(value="product") Product p) {
+    public void addProduct(@RequestParam(value="product") Product temp) {
    
-	productRepository.save(p);
+	productRepository.save(temp);
     }
 
 
