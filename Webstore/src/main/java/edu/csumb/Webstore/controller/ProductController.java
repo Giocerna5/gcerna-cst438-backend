@@ -40,7 +40,7 @@ public class ProductController
     //We are returning an Iterable, which means a List! Use Iterable<Datatype> when you want to return many.
     //For example Iterable<Product>
     @RequestMapping(method = RequestMethod.GET, value = "/products/getInfo")
-    @ApiOperation(value = "POST of products with (name) as params" )
+    @ApiOperation(value = "Does a GET of all products" )
     public List<Product> getInfo(){
         //ALL LOGIC SHOULD BE IN THE SERVICE. EVEN IF IT'S JUST ONE LINE!
         //IF YOU HAVE ANY LOGIC IN THE CONTROLLER IT IS BAD!
@@ -54,7 +54,7 @@ public class ProductController
     //Then you should use @RequestParam to get the variable, like so
     // public returnType getVar(@RequestParam DataType var)
     @RequestMapping(method = RequestMethod.GET, value = "/products/get")
-    @ApiOperation(value = "POST of products with (name) as params" )
+    @ApiOperation(value = "Does a GET with target" )
     public Optional<Product> getProductByID(@RequestParam(value="id") String id) {
         
 	return productRepository.findById(id);
@@ -70,7 +70,7 @@ public class ProductController
     //public void foo(@RequestParam dataType pathVar, @RequestBody dataType postVar)
 
      @RequestMapping(method = RequestMethod.POST, value = "/products/add")
-     @ApiOperation(value = "POST of products with (name) as params" )
+     @ApiOperation(value = "Does a POST of products with (name)" )
     public void addProduct(@RequestParam(value="product") Product temp) {
    
 	productRepository.save(temp);
